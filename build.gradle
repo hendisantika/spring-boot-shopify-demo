@@ -33,7 +33,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
-    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
     implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
     implementation 'joda-time:joda-time:2.11.1'
@@ -95,14 +95,14 @@ bootJar {
     }
 }
 
-bootRun {
-    // Use Spring Boot DevTool only when we run Gradle bootRun task
-    classpath = sourceSets.main.runtimeClasspath + configurations.dev
-
-    if (project.hasProperty('profiles')) {
-        environment SPRING_PROFILES_ACTIVE: profiles
-    } else {
-        def profiles = 'local'
-        environment SPRING_PROFILES_ACTIVE: profiles
-    }
-}
+//bootRun {
+//    // Use Spring Boot DevTool only when we run Gradle bootRun task
+//    classpath = sourceSets.main.runtimeClasspath + configurations.dev
+//
+//    if (project.hasProperty('profiles')) {
+//        environment SPRING_PROFILES_ACTIVE: profiles
+//    } else {
+//        def profiles = 'local'
+//        environment SPRING_PROFILES_ACTIVE: profiles
+//    }
+//}
