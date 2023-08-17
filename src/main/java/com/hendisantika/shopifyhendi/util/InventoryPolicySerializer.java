@@ -3,6 +3,7 @@ package com.hendisantika.shopifyhendi.util;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import com.hendisantika.shopifyhendi.entity.InventoryPolicy;
 
 import java.io.IOException;
 
