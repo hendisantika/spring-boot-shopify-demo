@@ -26,7 +26,7 @@ import java.util.Collections;
  * To change this template use File | Settings | File Templates.
  */
 @RestController
-@RequestMapping("shopify")
+@RequestMapping("shopify/products")
 @RequiredArgsConstructor
 @Slf4j
 public class ShopifyController {
@@ -35,16 +35,22 @@ public class ShopifyController {
     @Value("${shopify.auth.X-Shopify-Access-Token}")
     private String ShopifyAccessToken;
 
-    @GetMapping("/products")
+    @GetMapping
     public Mono<ShopifyProduct> getAllProducts() {
         log.info("Get All products ...");
         return shopifyClient.getAllProducts();
     }
 
-    @PostMapping("/products")
+    @PostMapping
     public Mono<ShopifyProductDTO> addNewProduct(@RequestBody ShopifyProductDTO shopifyProductDTO) {
         log.info("Add new product ...");
         return shopifyClient.addNewProduct(shopifyProductDTO);
+    }
+
+    @DeleteMapping("/{productId}")
+    public Mono<Void> addNewProduct(@PathVariable Long productId) {
+        log.info("Add new product ...");
+        return shopifyClient.deleteProductByID(productId);
     }
 
     @GetMapping("/products2")

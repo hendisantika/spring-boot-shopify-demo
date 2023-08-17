@@ -47,4 +47,12 @@ public class ShopifyClient {
                 .retrieve()
                 .bodyToMono(ShopifyProductDTO.class);
     }
+
+    public Mono<Void> deleteProductByID(Long productId) {
+        return client.delete()
+                .uri("https://hendi-shop.myshopify.com/admin/api/2023-07/products/" + productId + ".json")
+                .header("X-Shopify-Access-Token", ShopifyAccessToken)
+                .retrieve()
+                .bodyToMono(Void.class);
+    }
 }
