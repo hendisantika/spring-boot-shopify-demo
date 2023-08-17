@@ -1,0 +1,44 @@
+# Copy this file to application-local.yml and set your specific local test settings (e.g. Shopify Test Store Name, Shopify API key and secret, and token encryption key)
+debug: true
+
+spring:
+  application:
+    name: shopify-service
+    admin:
+      enabled: true
+  datasource:
+    url: jdbc:postgresql://${DB_SERVER_DEV:shopify-test}:${DB_PORT_DEV:5432}/${DB_NAME_DEV:shopifytest}
+    username: ${DB_USERNAME_DEV:postgres}
+    password: ${DB_PASSWORD_DEV:hendi34}
+  mvc:
+    log-request-details: true
+
+logging:
+  level:
+    org.springframework.web: DEBUG
+    org.springframework.web.filter.CommonsRequestLoggingFilter: TRACE
+    org.springframework.security: TRACE
+    com.hendisantika: TRACE
+    #    reactor.netty.http.client: TRACE
+
+server:
+  servlet:
+    session:
+      cookie.secure: false
+      persistent: false
+
+shopify:
+  app:
+    hostname: ${YOUR-APP-HOSTNAME:}
+    embedded: true
+  auth:
+    apiKey: ${YOUR-api-key:70142ace975f7ef1e9bebde608cbb125}
+    apiSecret: ${YOUR-api-secret:bad61c330a3a28551f55366814b14e8d}
+    tokenEncryptionKey: ${YOUR-token-encryption-key:NYBnYNoKi67n2vblV5Hlh8zpjXcDG6k3BCFiq53D7Vc=}
+  #      - can generate here - https://www.digitalsanctuary.com/aes-key-generator-free
+  test:
+    storeName: ${YOUR-TEST-STORE.myshopify.com:}
+  security:
+    unprotectedURIs: /,/index.html,/favicon.ico,/error,/css/*,/js/*,/dist/*,/img/*,/dash-embedded,/embedded-auth-check,/product-list
+    authSeccessPage: /dash-embedded
+
