@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.hendisantika.shopifyhendi.util.EscapedStringSerializer;
+import com.hendisantika.shopifyhendi.util.TagsDeserializer;
+import com.hendisantika.shopifyhendi.util.TagsSerializer;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -28,40 +30,54 @@ import java.util.stream.Collectors;
 @Data
 public class Product {
     private String id;
+
     @JsonSerialize(using = EscapedStringSerializer.class)
     private String title;
+
     @JsonProperty("product_type")
     private String productType;
+
     @JsonProperty("body_html")
     @JsonSerialize(using = EscapedStringSerializer.class)
     private String bodyHtml;
+
     @JsonSerialize(using = EscapedStringSerializer.class)
     private String vendor;
+
     @JsonSerialize(using = TagsSerializer.class)
     @JsonDeserialize(using = TagsDeserializer.class)
     @JsonProperty("tags")
     private Set<String> tags = new HashSet<>();
+
     private List<Option> options = new LinkedList<>();
+
     @JsonProperty("metafields_global_title_tag")
     private String metafieldsGlobalTitleTag;
+
     @JsonProperty("metafields_global_description_tag")
     private String metafieldsGlobalDescriptionTag;
     private List<Image> images = new LinkedList<>();
     private Image image;
-    private List<ShopifyVariant> variants = new LinkedList<>();
+    private List<Variant> variants = new LinkedList<>();
+
     @JsonProperty("published_at")
     private String publishedAt;
     private Boolean published;
+
     @JsonProperty("created_at")
     private Date createdAt;
+
     @JsonProperty("updated_at")
     private Date updatedAt;
+
     @JsonProperty("published_scope")
     private String publishedScope;
     private String handle;
+
     @JsonProperty("template_suffix")
     private String templateSuffix;
     private String status;
+
     @JsonProperty("admin_graphql_api_id")
     private String adminGraphqlApiId;
 
