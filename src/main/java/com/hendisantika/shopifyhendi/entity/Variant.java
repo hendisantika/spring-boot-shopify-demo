@@ -10,7 +10,6 @@ import com.hendisantika.shopifyhendi.util.InventoryPolicySerializer;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
-import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -33,7 +32,7 @@ public class Variant {
 
     @JsonSerialize(using = EscapedStringSerializer.class)
     public String title;
-    public BigDecimal price;
+    public String price;
     public String sku;
     public int position;
 
@@ -43,7 +42,7 @@ public class Variant {
     public InventoryPolicy inventoryPolicy;
 
     @JsonProperty("compare_at_price")
-    public BigDecimal compareAtPrice;
+    public String compareAtPrice;
     @JsonProperty("fulfillment_service")
     public String fulfillmentService;
     @JsonProperty("inventory_management")

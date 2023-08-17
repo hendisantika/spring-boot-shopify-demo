@@ -7,9 +7,16 @@ spring:
     admin:
       enabled: true
   datasource:
-    url: jdbc:postgresql://${DB_SERVER_DEV:shopify-test}:${DB_PORT_DEV:5432}/${DB_NAME_DEV:shopifytest}
+    url: jdbc:postgresql://${DB_SERVER_DEV:localhost}:${DB_PORT_DEV:5432}/${DB_NAME_DEV:shopifytest}
     username: ${DB_USERNAME_DEV:postgres}
     password: ${DB_PASSWORD_DEV:hendi34}
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
   mvc:
     log-request-details: true
 
