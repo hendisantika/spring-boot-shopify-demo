@@ -35,6 +35,7 @@ shopify:
     apiKey: ${YOUR-api-key:70142ace975f7ef1e9bebde608cbb125}
     apiSecret: ${YOUR-api-secret:bad61c330a3a28551f55366814b14e8d}
     tokenEncryptionKey: ${YOUR-token-encryption-key:NYBnYNoKi67n2vblV5Hlh8zpjXcDG6k3BCFiq53D7Vc=}
+    X-Shopify-Access-Token: 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
   #      - can generate here - https://www.digitalsanctuary.com/aes-key-generator-free
   test:
     storeName: ${YOUR-TEST-STORE.myshopify.com:}
