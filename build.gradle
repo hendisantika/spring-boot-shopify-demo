@@ -3,7 +3,6 @@ plugins {
     id 'org.springframework.boot' version '3.1.2'
     id 'io.spring.dependency-management' version '1.1.2'
     id "com.github.ben-manes.versions" version "0.42.0"
-    id "com.github.node-gradle.node" version "3.4.0"
 }
 
 group = 'com.hendisantika'
@@ -29,16 +28,16 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-jersey'
-    implementation 'org.springframework.boot:spring-boot-starter-security'
+//    implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
-    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+//    implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+//    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
     implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
     implementation 'joda-time:joda-time:2.11.1'
     implementation 'org.apache.commons:commons-lang3:3.12.0'
-    implementation 'org.apache.commons:commons-text:1.9'
+    implementation 'org.apache.commons:commons-text:1.10.0'
     implementation 'com.github.rholder:guava-retrying:2.0.0'
     implementation 'com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.13.3'
     implementation 'com.fasterxml.jackson.datatype:jackson-datatype-joda:2.13.3'
@@ -60,33 +59,19 @@ dependencies {
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'org.springframework.security:spring-security-test'
+//    testImplementation 'org.springframework.security:spring-security-test'
     testImplementation 'com.h2database:h2'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
     implementation 'com.github.rest-driver:rest-driver:2.0.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.10.0'
+
 }
 
 tasks.named('test') {
     useJUnitPlatform()
 }
-
-node {
-    version = '16.13.2'
-}
-
-task buildReactApp(type: NodeTask, dependsOn: 'npmInstall') {
-    script = project.file('node_modules/webpack/bin/webpack.js')
-    args = [
-            '--mode', 'development',
-            '--entry', './src/main/webapp/javascript/MyApp.jsx',
-            '-o', './src/main/resources/static/dist'
-    ]
-}
-
-processResources.dependsOn 'buildReactApp'
-
 
 bootJar {
 

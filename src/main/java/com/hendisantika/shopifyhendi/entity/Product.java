@@ -2,18 +2,18 @@ package com.hendisantika.shopifyhendi.entity;
 
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.hendisantika.shopifyhendi.util.EscapedStringSerializer;
-import com.hendisantika.shopifyhendi.util.TagsDeserializer;
-import com.hendisantika.shopifyhendi.util.TagsSerializer;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
-import java.awt.*;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -28,6 +28,8 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Product {
     private String id;
 
@@ -44,10 +46,10 @@ public class Product {
     @JsonSerialize(using = EscapedStringSerializer.class)
     private String vendor;
 
-    @JsonSerialize(using = TagsSerializer.class)
-    @JsonDeserialize(using = TagsDeserializer.class)
-    @JsonProperty("tags")
-    private Set<String> tags = new HashSet<>();
+//    @JsonSerialize(using = TagsSerializer.class)
+//    @JsonDeserialize(using = TagsDeserializer.class)
+//    @JsonProperty("tags")
+//    private Set<String> tags = new HashSet<>();
 
     private List<Option> options = new LinkedList<>();
 
