@@ -29,7 +29,7 @@ server:
 
 shopify:
   app:
-    hostname: ${YOUR-APP-HOSTNAME:}
+    hostname: ${YOUR-APP-HOSTNAME:https://hendi-shop.myshopify.com}
     embedded: true
   auth:
     apiKey: ${YOUR-api-key:70142ace975f7ef1e9bebde608cbb125}
