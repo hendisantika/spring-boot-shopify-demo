@@ -35,7 +35,7 @@ dependencies {
 //    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
     implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
-    implementation 'joda-time:joda-time:2.13.0'
+    implementation 'joda-time:joda-time:2.13.1'
     implementation 'org.apache.commons:commons-lang3:3.17.0'
     implementation 'org.apache.commons:commons-text:1.13.0'
     implementation 'com.github.rholder:guava-retrying:2.0.0'
