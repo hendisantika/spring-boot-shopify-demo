@@ -61,11 +61,11 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 //    testImplementation 'org.springframework.security:spring-security-test'
     testImplementation 'com.h2database:h2'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:6.0.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:6.0.1'
     implementation 'com.github.rest-driver:rest-driver:2.0.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:6.0.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:6.0.1'
     // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
-    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '6.0.0'
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '6.0.1'
 
 }
 
